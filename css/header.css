@@ -1,0 +1,34 @@
+header{
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+  margin: 10px;
+  border-radius: 50px;
+  background-color: var(--cor-c3);
+  font-family: var(--font-primaria);
+}
+
+.logo-img {
+  height: 60px;
+  padding-left: 4rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding-right: 4rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--cor-p4);
+  font-weight: semibold;
+  font-size: 1.2rem;
+}
