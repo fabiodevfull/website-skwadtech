@@ -2,3 +2,49 @@
   padding: 0;
   margin: 0;
 }
+
+:root {
+  /* Cores Primarias */
+  --cor-p1: #dbc2f4;
+  --cor-p2: #945cc9;
+  --cor-p3: #7c67cf;
+  --cor-p4: #23458f;
+
+  /* Cores Secundarias */
+  --cor-c1: #ffffff;
+  --cor-c2: #e9ebee;
+  --cor-c3: #dee2ea;
+  --cor-c4: #cdd3df;
+  --cor-c5: #abb9d7;
+  --cor-c6: #889fcf;
+  --cor-c7: #6b8cd5;
+  --cor-c8: #5780d9;
+  --cor-c9: #3d68c8;
+  --cor-c10: #3357a7;
+  --cor-c11: #23458f;
+
+  /* Cores Preenchimento */
+  --cor-e0: #ffffff;
+  --cor-e1: #f7f7f7;
+  --cor-e2: #ededed;
+  --cor-e3: #dedede;
+  --cor-e4: #cccccc;
+  --cor-e5: #b2b2b2;
+  --cor-e6: #9c9c9c;
+  --cor-e7: #717171;
+  --cor-e8: #595959;
+  --cor-e9: #404040;
+  --cor-e10: #2e2e2e;
+  --cor-e11: #111111;
+  --cor-e12: #000000;
+
+  /* Cores Alternaativas */
+  --cor-a1: #181023;
+  --cor-a2: #251930;
+  --cor-a3: #a392b3;
+  --cor-a4: #a240ff;
+
+  /* Tipografia (Fontes) */
+  --font-primaria: 'Roboto', sans-serif;
+  --font-secundaria: 'Poppins', sans-serif;
+}
