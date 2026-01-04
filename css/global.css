@@ -12,7 +12,22 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  animation: floatingWave 15s ease-in-out infinite;
+}
+
+@keyframes floatingWave {
+  0%, 100% {
+    background-position: 50% 50%;
+    background-size: 100%;
+  }
+  33% {
+    background-position: 45% 55%;
+    background-size: 110%;
+  }
+  66% {
+    background-position: 55% 45%;
+    background-size: 110%;
+  }
 }
 
 :root {
