@@ -8,19 +8,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <title>SkwadTech | Soluções</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- GSAP Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="/index.html"><img class="logo-img" src="/assets/img/logo.svg" alt="Logo SkwadTech"></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Soluções</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
+  <!-- Seção Hero com animação de partículas -->
+  <div class="hero-section">
+    <!-- Canvas para animação de partículas -->
+    <canvas id="particleCanvas"></canvas>
+    
+    <header>
+      <nav class="navbar">
+        <a href="/index.html"><img class="logo-img" src="/assets/img/logo.svg" alt="Logo SkwadTech"></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Soluções</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main-conteudo">
+        <h1>Desenvolvimento de <span>Software</span><br><span>Sites </span>e <span>Soluções</span></h1>
+        <p>Nosso objetivo é dar vida para a sua solução através da tecnologia</p>
+        <p>Venha transformar seu negócio</p>
+        <p>Projetos personalizados de acordo com as suas necessidades</p>
+      </div>
+    </main>
+  </div>
+
+  <section class="section-primeira">
+    <div class="solucoes">
+      <h2>SOLUÇÕES</h2>
+      <ul>
+        <li>Desenvolvimento de Software</li>
+        <li>Desenvolvimento Web</li>
+        <li>Reestruturação de Software</li>
+        <li>Estruturação de Banco de Dados</li>
+        <li>UI | UX Design</li>
+        <li>Consultoria em T.I</li>
       </ul>
-    </nav>
-    <script src="script.js"></script>
+    </div>
+
+    <div class="stacks">
+      <h2>STACKS</h2>
+      <div class="stacks-container">
+        <ul>
+          <li><img src="/assets/img/HTML5.svg" alt="HTML"></li>
+          <li><img src="/assets/img/CSS3.svg" alt="CSS"></li>
+          <li><img src="/assets/img/JavaScript.svg" alt="JavaScript"></li>
+          <li><img src="/assets/img/React.svg" alt="React"></li>
+          <li><img src="/assets/img/Next.js.svg" alt="NodeJS"></li>
+          <li><img src="/assets/img/Tailwind CSS.svg" alt="Tailwind"></li>
+        </ul>
+        <ul>
+          <li><img src="/assets/img/CSharp.svg" alt="C#"></li>
+          <li><img src="/assets/img/C++.svg" alt="C++"></li>
+          <li><img src="/assets/img/TypeScript.svg" alt="TypeScript"></li>
+          <li><img src="/assets/img/Java.svg" alt="Java"></li>
+          <li><img src="/assets/img/Node.js.svg" alt="NodeJS"></li>
+        </ul>
+        <ul>
+          <li><img src="/assets/img/PostgresSQL.svg" alt="PostgresSQL"></li>
+          <li><img src="/assets/img/MySQL.svg" alt="MySQL"></li>
+          <li><img src="/assets/img/Oracle.svg" alt="Oracle"></li>
+          <li><img src="/assets/img/MongoDB.svg" alt="MongoDB"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script de animação -->
+  <script src="animation.js"></script>
 </body>
 
 </html>

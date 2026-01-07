@@ -1,0 +1,96 @@
+.section-primeira {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 4rem 10rem;
+  gap: 60px;
+  background: var(--cor-e1);
+}
+
+.solucoes {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+}
+
+.solucoes h2 {
+  font-size: 2rem;
+  color: var(--cor-c1);
+}
+
+.solucoes h2::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 5px;
+  background-color: var(--cor-p4);
+  margin-bottom: 10px;
+}
+
+.solucoes ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.solucoes li {
+  margin: 30px 0;
+  font-size: 1.5rem;
+  color: var(--cor-c6);
+}
+
+/* Stacks */
+.stacks {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+}
+
+.stacks h2 {
+  font-size: 2rem;
+  color: var(--cor-c1);
+}
+
+.stacks h2::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 5px;
+  background-color: var(--cor-p4);
+  margin-bottom: 10px;
+}
+
+/* Container das listas de stacks */
+.stacks-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.stacks-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.stacks-container ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stacks-container ul li img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.stacks-container ul li img:hover {
+  transform: scale(1.1);
+}
