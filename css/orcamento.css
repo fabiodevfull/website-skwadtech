@@ -1,0 +1,207 @@
+/* Section Orçamento */
+.section-orcamento {
+  min-height: 50vh;
+  padding: 4rem 2rem;
+  background: linear-gradient(50deg, #1a0f2e 0%, #23458f 50%, #1a0f2e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-orcamento h2 {
+  font-size: 3rem;
+  color: var(--cor-c1);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Container dos cards */
+.orcamento-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1400px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Card de código (esquerda) */
+.code-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header do card de código (bolinhas Mac) */
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-header .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.code-header .dot.red {
+  background: #ff5f56;
+}
+
+.code-header .dot.yellow {
+  background: #ffbd2e;
+}
+
+.code-header .dot.green {
+  background: #27c93f;
+}
+
+.code-header .filename {
+  margin-left: 10px;
+  color: var(--cor-c6);
+  font-size: 0.95rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Área do código */
+.code-content {
+  background: rgba(148, 92, 201, 0.15);
+  padding: 25px;
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--cor-c6);
+  flex: 1;
+}
+
+.code-content .keyword {
+  color: #c792ea;
+}
+
+.code-content .variable {
+  color: #82aaff;
+}
+
+.code-content .property {
+  color: #89ddff;
+}
+
+.code-content .string {
+  color: #c3e88d;
+}
+
+/* Botão Enviar no card de código */
+.code-card .btn-enviar {
+  background: var(--cor-p4);
+  color: var(--cor-c1);
+  padding: 10px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.code-card .btn-enviar:hover {
+  background: var(--cor-c9);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(35, 69, 143, 0.4);
+}
+
+.code-card .btn-enviar::before {
+  content: "▷";
+  font-size: 1.2rem;
+}
+
+/* Card do formulário (direita) */
+.form-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Grupos de input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--cor-c2);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px 20px;
+  color: var(--cor-c1);
+  font-size: 1rem;
+  font-family: var(--font-primaria);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--cor-p4);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(35, 69, 143, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .orcamento-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .section-orcamento {
+    padding: 4rem 2rem;
+  }
+  
+  .section-orcamento h2 {
+    font-size: 2.5rem;
+  }
+}
