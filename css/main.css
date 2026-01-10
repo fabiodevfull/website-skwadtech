@@ -22,16 +22,9 @@
 }
 
 .main-conteudo p {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: var(--cor-c6);
   margin: 10px 0;
   max-width: 900px;
   line-height: 1.6;
-}
-
-.main-conteudo p:first-of-type {
-  font-size: 2rem;
-  color: var(--cor-c5);
-  margin-top: 20px;
-  margin-bottom: 15px;
 }
