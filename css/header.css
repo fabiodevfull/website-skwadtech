@@ -1,12 +1,14 @@
+/* ── Base: Mobile ── */
 header {
-  padding: 0 10rem;
+  padding: 0 1rem;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5rem;
+  flex-wrap: wrap;
+  padding: 0.8rem 1.2rem;
   margin: 10px 0;
   border-radius: 15px;
   background-color: var(--cor-c3);
@@ -14,8 +16,8 @@ header {
 }
 
 .logo-img {
-  height: 60px;
-  padding-left: 2rem;
+  height: 44px;
+  padding-left: 0;
   transition: transform 0.3s ease;
 }
 
@@ -23,21 +25,54 @@ header {
   transform: scale(1.05);
 }
 
+/* ── Hamburger button (visível só no mobile) ── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--cor-p4);
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Menu fechado por padrão no mobile */
 .nav-links {
   list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  padding: 0.8rem 0 0.4rem;
+  text-align: center;
+}
+
+.nav-links.active {
   display: flex;
-  gap: 3rem;
-  padding-right: 2rem;
-  align-items: center;
 }
 
 .nav-links li a {
   text-decoration: none;
   color: var(--cor-p4);
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: color 0.3s ease;
   position: relative;
+  display: block;
+  padding: 0.6rem 0;
 }
 
 .nav-links li a:hover {
@@ -49,12 +84,82 @@ header {
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -5px;
-  left: 0;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--cor-p4);
   transition: width 0.3s ease;
 }
 
 .nav-links li a:hover::after {
-  width: 100%;
+  width: 40%;
+}
+
+/* ── Tablet: ≥ 768px ── */
+@media (min-width: 768px) {
+  header {
+    padding: 0 2rem;
+  }
+
+  .navbar {
+    padding: 1rem 2rem;
+    flex-wrap: nowrap;
+  }
+
+  /* Esconde hamburger, mostra menu inline */
+  .hamburger {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    padding: 0;
+    gap: 2rem;
+  }
+
+  .logo-img {
+    height: 55px;
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+    padding: 0;
+  }
+
+  .nav-links li a::after {
+    left: 0;
+    transform: none;
+    bottom: -7px;
+  }
+
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+}
+
+/* ── Desktop: ≥ 1025px ── */
+@media (min-width: 1025px) {
+  header {
+    padding: 0 10rem;
+  }
+
+  .navbar {
+    padding: 1rem 5rem;
+  }
+
+  .logo-img {
+    height: 60px;
+    padding-left: 2rem;
+  }
+
+  .nav-links {
+    gap: 3rem;
+    padding-right: 2rem;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+  }
 }

@@ -1,0 +1,128 @@
+.footer-section {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Título */
+.footer-titulo {
+  font-family: var(--font-secundaria);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--cor-c2);
+  text-align: center;
+}
+
+/* Botão WhatsApp */
+.footer-whatsapp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--cor-c2);
+  font-family: var(--font-secundaria);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.5;
+  transition: transform 0.3s ease;
+}
+
+.footer-whatsapp:hover {
+  transform: translateY(-4px);
+}
+
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* Ícones sociais */
+.footer-social {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.social-link {
+  color: var(--cor-c5);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link svg {
+  width: 26px;
+  height: 26px;
+}
+
+.social-link:hover {
+  color: var(--cor-c1);
+  transform: translateY(-3px);
+}
+
+/* Linha divisória */
+.footer-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0;
+}
+
+/* Copyright */
+.footer-copyright {
+  font-family: var(--font-primaria);
+  font-size: 0.9rem;
+  color: var(--cor-c5);
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+/* ── Tablet: ≥ 768px ── */
+@media (min-width: 768px) {
+  .footer-titulo {
+    font-size: 2rem;
+  }
+}
+
+/* ── Desktop: ≥ 1025px ── */
+@media (min-width: 1025px) {
+  .footer-section {
+    padding: 5rem 2rem 2.5rem;
+  }
+
+  .footer-titulo {
+    font-size: 1.8rem;
+  }
+}

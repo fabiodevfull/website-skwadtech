@@ -1,17 +1,18 @@
+/* ── Base: Mobile ── */
 .main-conteudo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 85vh;
-  padding: 2rem;
+  min-height: 80vh;
+  padding: 1.5rem 1.5rem;
 }
 
 .main-conteudo h1 {
-  font-size: 5rem;
+  font-size: 2.4rem;
   color: var(--cor-c1);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   line-height: 1.2;
   font-weight: 700;
 }
@@ -22,9 +23,42 @@
 }
 
 .main-conteudo p {
-  font-size: 1.7rem;
+  font-size: 1.1rem;
   color: var(--cor-c6);
-  margin: 10px 0;
-  max-width: 900px;
+  margin: 8px 0;
+  max-width: 100%;
   line-height: 1.6;
+}
+
+/* ── Tablet: ≥ 768px ── */
+@media (min-width: 768px) {
+  .main-conteudo {
+    min-height: 85vh;
+    padding: 2rem;
+  }
+
+  .main-conteudo h1 {
+    font-size: 3.8rem;
+    margin-bottom: 24px;
+  }
+
+  .main-conteudo p {
+    font-size: 1.4rem;
+    margin: 9px 0;
+    max-width: 720px;
+  }
+}
+
+/* ── Desktop: ≥ 1025px ── */
+@media (min-width: 1025px) {
+  .main-conteudo h1 {
+    font-size: 5rem;
+    margin-bottom: 30px;
+  }
+
+  .main-conteudo p {
+    font-size: 1.7rem;
+    margin: 10px 0;
+    max-width: 900px;
+  }
 }

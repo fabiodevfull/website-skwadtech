@@ -1,0 +1,55 @@
+/* ============================================
+   Degradês de transição entre seções
+   ============================================ */
+
+/* Hero (escuro) → Soluções (branco) */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to bottom, transparent, #ffffff);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Soluções/Quem Somos (branco) → Processo (#e4e8f2) */
+.section-processo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, #ffffff, #e4e8f2);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Processo (#e4e8f2) → Orçamento (escuro) */
+.section-processo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent, #1a0f2e);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Orçamento → Footer (escuro → mais escuro) */
+.section-orcamento::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #0a0a0a);
+  z-index: 2;
+  pointer-events: none;
+}

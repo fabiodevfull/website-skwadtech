@@ -1,46 +1,63 @@
-/* Section Orçamento */
+/* Wrapper escuro compartilhado com footer */
+.dark-wrapper {
+  position: relative;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0f2e 50%, #0f1a2e 100%);
+}
+
+#darkCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Base: Mobile ── */
 .section-orcamento {
-  min-height: 50vh;
-  padding: 4rem 2rem;
-  background: linear-gradient(50deg, #1a0f2e 0%, #23458f 50%, #1a0f2e 100%);
+  min-height: unset;
+  padding: 3rem 1.5rem;
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: 30px;
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .section-orcamento h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--cor-c1);
   font-weight: 600;
   text-align: center;
-  margin-bottom: 40px;
 }
 
 /* Container dos cards */
 .orcamento-container {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 20px;
   max-width: 1400px;
   width: 100%;
   align-items: stretch;
 }
 
-/* Card de código (esquerda) */
+/* Card de código */
 .code-card {
   flex: 1;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 30px;
+  padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow: hidden;
 }
 
 /* Header do card de código (bolinhas Mac) */
@@ -58,54 +75,44 @@
   border-radius: 50%;
 }
 
-.code-header .dot.red {
-  background: #ff5f56;
-}
-
-.code-header .dot.yellow {
-  background: #ffbd2e;
-}
-
-.code-header .dot.green {
-  background: #27c93f;
-}
+.code-header .dot.red  { background: #ff5f56; }
+.code-header .dot.yellow { background: #ffbd2e; }
+.code-header .dot.green  { background: #27c93f; }
 
 .code-header .filename {
   margin-left: 10px;
   color: var(--cor-c6);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-family: 'Courier New', monospace;
 }
 
 /* Área do código */
 .code-content {
   background: rgba(148, 92, 201, 0.15);
-  padding: 25px;
+  padding: 20px;
   border-radius: 12px;
   font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.8;
   color: var(--cor-c6);
   flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
-.code-content .keyword {
-  color: #c792ea;
-}
+.code-content::-webkit-scrollbar { width: 6px; }
+.code-content::-webkit-scrollbar-track { background: rgba(124, 103, 207, 0.1); border-radius: 10px; }
+.code-content::-webkit-scrollbar-thumb { background: var(--cor-p3); border-radius: 10px; }
+.code-content::-webkit-scrollbar-thumb:hover { background: var(--cor-p2); }
 
-.code-content .variable {
-  color: #82aaff;
-}
+.code-content .keyword  { color: #c792ea; }
+.code-content .variable { color: #82aaff; }
+.code-content .property { color: #89ddff; }
+.code-content .string   { color: #c3e88d; }
 
-.code-content .property {
-  color: #89ddff;
-}
-
-.code-content .string {
-  color: #c3e88d;
-}
-
-/* Botão Enviar no card de código */
+/* Botão Enviar */
 .code-card .btn-enviar {
   background: var(--cor-p4);
   color: var(--cor-c1);
@@ -133,18 +140,18 @@
   font-size: 1.2rem;
 }
 
-/* Card do formulário (direita) */
+/* Card do formulário */
 .form-card {
   flex: 1;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 40px;
+  padding: 24px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
 /* Grupos de input */
@@ -160,7 +167,17 @@
   font-weight: 500;
 }
 
-.form-group input,
+.form-group input {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: var(--cor-c1);
+  font-size: 0.95rem;
+  font-family: var(--font-primaria);
+  transition: all 0.3s ease;
+}
+
 .form-group textarea {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -185,23 +202,96 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-.form-group textarea {
-  min-height: 120px;
-  resize: vertical;
+.form-group:last-child {
+  flex: 1;
+  min-height: 0;
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
-  .orcamento-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
+.form-group textarea {
+  flex: 1;
+  min-height: 100px;
+  resize: none;
+  overflow-y: auto;
+}
+
+.form-group textarea::-webkit-scrollbar { width: 6px; }
+.form-group textarea::-webkit-scrollbar-track { background: rgba(124, 103, 207, 0.1); border-radius: 10px; }
+.form-group textarea::-webkit-scrollbar-thumb { background: var(--cor-p3); border-radius: 10px; }
+.form-group textarea::-webkit-scrollbar-thumb:hover { background: var(--cor-p2); }
+
+/* ── Tablet: ≥ 768px ── */
+@media (min-width: 768px) {
   .section-orcamento {
     padding: 4rem 2rem;
+    gap: 40px;
   }
-  
+
   .section-orcamento h2 {
     font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .orcamento-container {
+    gap: 30px;
+  }
+
+  .code-card {
+    padding: 24px;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .form-card {
+    padding: 32px;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .code-header .filename {
+    font-size: 0.95rem;
+  }
+
+  .code-content {
+    font-size: 0.95rem;
+    padding: 25px;
+  }
+}
+
+/* ── Desktop: ≥ 1025px ── */
+@media (min-width: 1025px) {
+  .section-orcamento {
+    min-height: 50vh;
+    padding: 4rem 2rem;
+    gap: 60px;
+  }
+
+  .section-orcamento h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .orcamento-container {
+    flex-direction: row;
+    height: 480px;
+    gap: 40px;
+  }
+
+  .code-card {
+    max-width: unset;
+    margin: 0;
+    padding: 30px;
+  }
+
+  .form-card {
+    max-width: unset;
+    margin: 0;
+    padding: 40px;
+    gap: 25px;
+  }
+
+  .form-group textarea {
+    min-height: 0;
   }
 }

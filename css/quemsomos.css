@@ -1,17 +1,18 @@
+/* ── Base: Mobile ── */
 .section-quemsomos {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 10rem;
-  gap: 80px;
+  padding: 3rem 1.5rem;
+  gap: 2rem;
   max-width: 1600px;
   margin: 0 auto;
   position: relative;
 }
 
 .section-quemsomos h2 {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: var(--cor-p3);
   font-weight: 600;
   display: flex;
@@ -21,9 +22,44 @@
 }
 
 .section-quemsomos div p {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   color: var(--cor-p4);
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+/* ── Tablet: ≥ 768px ── */
+@media (min-width: 768px) {
+  .section-quemsomos {
+    padding: 3rem 4rem;
+    gap: 3rem;
+  }
+
+  .section-quemsomos h2 {
+    font-size: 1.9rem;
+  }
+
+  .section-quemsomos div p {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+}
+
+/* ── Desktop: ≥ 1025px ── */
+@media (min-width: 1025px) {
+  .section-quemsomos {
+    padding: 4rem 10rem;
+    gap: 80px;
+  }
+
+  .section-quemsomos h2 {
+    font-size: 2rem;
+  }
+
+  .section-quemsomos div p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
 }
