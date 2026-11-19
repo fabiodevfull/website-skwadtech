@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página não encontrada | SkwadTech</title>
+  <!-- A Netlify usa este arquivo para qualquer endereço que não existe (com status 404) -->
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      color: #f7f7f7;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0f2e 50%, #0f1a2e 100%);
+    }
+    .logo { background: #dee2ea; border-radius: 15px; padding: 0.8rem 1.2rem; }
+    .logo img { height: 44px; width: auto; display: block; }
+    h1 { font-family: 'Poppins', sans-serif; font-size: clamp(2rem, 6vw, 3.4rem); }
+    p { color: #abb9d7; font-size: 1.1rem; max-width: 520px; line-height: 1.6; }
+    .acoes { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .acoes a {
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #fff;
+      background: #23458f;
+    }
+    .acoes a.secundario { background: transparent; border: 1px solid #7c67cf; }
+    .acoes a:hover { filter: brightness(1.15); }
+  </style>
+</head>
+
+<body>
+  <a class="logo" href="/"><img src="/assets/img/logo.svg" alt="SkwadTech" width="155" height="44"></a>
+  <h1>Página não encontrada</h1>
+  <p>O endereço que você abriu não existe ou mudou de lugar. Volte para o início ou peça um orçamento.</p>
+  <div class="acoes">
+    <a href="/">Ir para o início</a>
+    <a class="secundario" href="/#orcamento">Solicitar orçamento</a>
+  </div>
+</body>
+
+</html>

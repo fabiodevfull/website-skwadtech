@@ -1,0 +1,34 @@
+# SkwadTech
+
+> A SkwadTech é uma empresa brasileira de tecnologia, fundada em 2025, que desenvolve software, sites e sistemas sob medida para empresas. Atua de forma consultiva: entende o desafio do negócio antes de propor a solução.
+
+## Serviços
+
+- Desenvolvimento de Software: sistemas sob medida para as necessidades do negócio
+- Desenvolvimento Web: sites e aplicações web responsivos
+- Reestruturação de Software: modernização e reorganização de sistemas existentes
+- Estruturação de Banco de Dados: modelagem e organização de bancos de dados
+- UI | UX Design: design de interfaces e experiência do usuário
+- Consultoria em T.I: apoio estratégico em tecnologia
+
+## Tecnologias
+
+HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Node.js, Java, C#, C++, PostgreSQL, MySQL, Oracle e MongoDB.
+
+## Como trabalhamos
+
+1. Reunião para conhecer o projeto
+2. Diagnóstico da necessidade do cliente
+3. Definição de conteúdo e ferramentas
+4. Criação do layout do projeto
+5. Apresentação e aprovação do layout
+6. Desenvolvimento
+7. Aprovação e entrega
+8. Publicação
+
+## Contato
+
+- Site: https://skwadtech.com.br/
+- Orçamento: formulário em https://skwadtech.com.br/#orcamento
+- WhatsApp: +55 11 96501-9164 (https://wa.me/5511965019164)
+- Atendimento em português, para todo o Brasil

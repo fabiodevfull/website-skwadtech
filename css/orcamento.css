@@ -295,3 +295,29 @@
     min-height: 0;
   }
 }
+
+/* Armadilha para robôs do Netlify Forms (campo bot-field): invisível para pessoas */
+.campo-oculto {
+  display: none;
+}
+
+/* Retorno do envio do orçamento (abaixo do botão) */
+.orcamento-status {
+  margin-top: 12px;
+  min-height: 1.4em;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.orcamento-status.ok {
+  color: #4ade80;
+}
+
+.orcamento-status.erro {
+  color: #fca5a5;
+}
+
+.code-card .btn-enviar:disabled {
+  opacity: 0.8;
+  cursor: wait;
+}

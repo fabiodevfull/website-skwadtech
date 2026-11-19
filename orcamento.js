@@ -1,5 +1,9 @@
-// Sincronização do formulário com o código
+// Formulário de orçamento: espelha o que é digitado no "card de código" e envia para o
+// Netlify Forms (form name="orcamento" no index.html). A Netlify guarda cada envio no
+// painel Forms e avisa por e-mail. Sem JavaScript, o <form> envia sozinho e a Netlify
+// mostra a página de confirmação dela.
 document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form[name="orcamento"]');
   const inputs = {
     nome: document.getElementById('nome'),
     whatsapp: document.getElementById('whatsapp'),
@@ -9,84 +13,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const codeContent = document.querySelector('.code-content');
   const btnEnviar = document.querySelector('.btn-enviar');
+  const status = document.querySelector('.orcamento-status');
 
-  // Função para atualizar o código exibido
+  // O texto digitado vira texto, nunca HTML (sem isso, "<img onerror=...>" rodaria na página)
+  const escapar = (valor) => valor.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+  // Atualiza o código exibido
   function updateCode() {
-    const code = `<span class="keyword">const</span> <span class="variable">Orcamento</span> = {<br>
-  &nbsp;&nbsp;<span class="property">nome</span>: <span class="string">'${inputs.nome.value || ''}'</span>,<br>
-  &nbsp;&nbsp;<span class="property">whatsapp</span>: <span class="string">'${inputs.whatsapp.value || ''}'</span>,<br>
-  &nbsp;&nbsp;<span class="property">email</span>: <span class="string">'${inputs.email.value || ''}'</span>,<br>
-  &nbsp;&nbsp;<span class="property">mensagem</span>: <span class="string">'${inputs.mensagem.value || ''}'</span><br>
+    const v = (campo) => escapar(inputs[campo].value || '');
+    codeContent.innerHTML = `<span class="keyword">const</span> <span class="variable">Orcamento</span> = {<br>
+  &nbsp;&nbsp;<span class="property">nome</span>: <span class="string">'${v('nome')}'</span>,<br>
+  &nbsp;&nbsp;<span class="property">whatsapp</span>: <span class="string">'${v('whatsapp')}'</span>,<br>
+  &nbsp;&nbsp;<span class="property">email</span>: <span class="string">'${v('email')}'</span>,<br>
+  &nbsp;&nbsp;<span class="property">mensagem</span>: <span class="string">'${v('mensagem')}'</span><br>
 }`;
-    
-    codeContent.innerHTML = code;
   }
 
-  // Adicionar listeners aos inputs
   Object.values(inputs).forEach(input => {
     input.addEventListener('input', updateCode);
   });
 
-  // Função para enviar o formulário
-  btnEnviar.addEventListener('click', () => {
+  function mostrarStatus(texto, tipo) {
+    status.textContent = texto;
+    status.className = `orcamento-status ${tipo}`;
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
     const dados = {
-      nome: inputs.nome.value,
-      whatsapp: inputs.whatsapp.value,
-      email: inputs.email.value,
-      mensagem: inputs.mensagem.value
+      nome: inputs.nome.value.trim(),
+      whatsapp: inputs.whatsapp.value.trim(),
+      email: inputs.email.value.trim(),
+      mensagem: inputs.mensagem.value.trim()
     };
 
-    // Validação simples
     if (!dados.nome || !dados.whatsapp || !dados.email || !dados.mensagem) {
-      alert('Por favor, preencha todos os campos!');
+      mostrarStatus('Preencha todos os campos.', 'erro');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dados.email)) {
+      mostrarStatus('Informe um e-mail válido.', 'erro');
+      return;
+    }
+    if (dados.whatsapp.replace(/\D/g, '').length < 10) {
+      mostrarStatus('Informe o WhatsApp com DDD.', 'erro');
       return;
     }
 
-    // Validação de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(dados.email)) {
-      alert('Por favor, insira um email válido!');
-      return;
-    }
+    btnEnviar.disabled = true;
+    const textoOriginal = btnEnviar.textContent;
+    btnEnviar.textContent = 'Enviando...';
+    mostrarStatus('', '');
 
-    // Animação de sucesso com GSAP
-    gsap.to(btnEnviar, {
-      scale: 0.95,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-      onComplete: () => {
-        // Aqui você pode adicionar a lógica para enviar os dados
-        console.log('Dados do orçamento:', dados);
-        
-        // Exemplo: enviar para WhatsApp
-        const mensagemWhatsApp = `Olá! Gostaria de solicitar um orçamento.
-        
-Nome: ${dados.nome}
-Email: ${dados.email}
-Mensagem: ${dados.mensagem}`;
-        
-        const numeroWhatsApp = dados.whatsapp.replaceAll(/\D/g, '');
-        const urlWhatsApp = `https://wa.me/55${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
-        
-        // Abrir WhatsApp
-        window.open(urlWhatsApp, '_blank');
-        
-        // Limpar formulário
-        Object.values(inputs).forEach(input => input.value = '');
-        updateCode();
-        
-        // Feedback visual
-        const originalText = btnEnviar.textContent;
-        btnEnviar.textContent = '✓ Enviado!';
-        btnEnviar.style.background = '#27c93f';
-        
-        setTimeout(() => {
-          btnEnviar.textContent = originalText;
-          btnEnviar.style.background = '';
-        }, 2000);
-      }
-    });
+    try {
+      // Formato que a Netlify espera: form-name + campos, como um <form> comum
+      const resposta = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
+
+      form.reset();
+      updateCode();
+      btnEnviar.textContent = '✓ Enviado!';
+      btnEnviar.style.background = '#27c93f';
+      mostrarStatus('Recebemos seu pedido! Vamos responder em breve pelo WhatsApp ou e-mail.', 'ok');
+      gsap.to(btnEnviar, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
+
+      setTimeout(() => {
+        btnEnviar.textContent = textoOriginal;
+        btnEnviar.style.background = '';
+        btnEnviar.disabled = false;
+      }, 3000);
+    } catch (erro) {
+      btnEnviar.textContent = textoOriginal;
+      btnEnviar.disabled = false;
+      mostrarStatus('Não foi possível enviar agora. Tente de novo ou fale com a gente pelo WhatsApp.', 'erro');
+    }
   });
 
   // Animação de entrada dos cards com GSAP

@@ -18,7 +18,9 @@
 }
 
 .main-conteudo h1 span {
-  color: var(--cor-p4);
+  /* Azul mais claro da paleta: o --cor-p4 (#23458f) sobre o fundo escuro ficava com
+     contraste de ~2:1, abaixo do mínimo de acessibilidade (3:1 para texto grande) */
+  color: var(--cor-c7);
   font-weight: 700;
 }
 

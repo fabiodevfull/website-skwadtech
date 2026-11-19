@@ -1,0 +1,29 @@
+# Configuração da Netlify (publicação do site estático, sem build)
+
+# /index.html é a mesma página que "/": um endereço só para o Google
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+# Cabeçalhos de segurança em todas as respostas (o HSTS a Netlify já envia)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Imagens: cache de 30 dias no navegador. CSS e JS não têm hash no nome, então ficam no
+# padrão da Netlify (revalida a cada visita), para uma mudança aparecer na hora
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

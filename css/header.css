@@ -17,6 +17,7 @@ header {
 
 .logo-img {
   height: 44px;
+  width: auto; /* o <img> tem width/height (evita salto no carregamento); a largura acompanha a altura */
   padding-left: 0;
   transition: transform 0.3s ease;
 }

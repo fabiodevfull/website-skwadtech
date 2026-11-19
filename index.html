@@ -5,49 +5,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SkwadTech | Desenvolvimento de Software, Sites e Soluções Tecnológicas</title>
-  <meta name="description" content="A SkwadTech desenvolve software, sites e soluções tecnológicas sob medida. Especialistas em React, Node.js, Java, C# e muito mais. Solicite um orçamento.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.skwadtech.com.br/">
+  <title>SkwadTech | Desenvolvimento de Software e Sites sob Medida</title>
+  <meta name="description" content="Desenvolvimento de software, sites e sistemas sob medida para empresas: React, Node.js, Java, C# e bancos de dados. Fale com a SkwadTech e peça um orçamento.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- Endereço principal: sem www (o www.skwadtech.com.br redireciona para cá na Netlify) -->
+  <link rel="canonical" href="https://skwadtech.com.br/">
+  <meta name="theme-color" content="#1a0f2e">
 
-  <!-- Open Graph -->
+  <!-- Open Graph (WhatsApp, LinkedIn, Facebook): imagem PNG 1200x630; SVG não aparece nessas redes -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.skwadtech.com.br/">
-  <meta property="og:title" content="SkwadTech | Desenvolvimento de Software, Sites e Soluções Tecnológicas">
-  <meta property="og:description" content="A SkwadTech desenvolve software, sites e soluções tecnológicas sob medida. Especialistas em React, Node.js, Java, C# e muito mais. Solicite um orçamento.">
-  <meta property="og:image" content="https://www.skwadtech.com.br/assets/img/logo.svg">
+  <meta property="og:url" content="https://skwadtech.com.br/">
+  <meta property="og:title" content="SkwadTech | Desenvolvimento de Software e Sites sob Medida">
+  <meta property="og:description" content="Software, sites e sistemas sob medida para empresas. Fale com a SkwadTech e peça um orçamento.">
+  <meta property="og:image" content="https://skwadtech.com.br/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SkwadTech: desenvolvimento de software, sites e soluções">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="SkwadTech">
 
-  <!-- Twitter Card -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SkwadTech | Desenvolvimento de Software, Sites e Soluções Tecnológicas">
-  <meta name="twitter:description" content="A SkwadTech desenvolve software, sites e soluções tecnológicas sob medida. Especialistas em React, Node.js, Java, C# e muito mais. Solicite um orçamento.">
-  <meta name="twitter:image" content="https://www.skwadtech.com.br/assets/img/logo.svg">
+  <meta name="twitter:title" content="SkwadTech | Desenvolvimento de Software e Sites sob Medida">
+  <meta name="twitter:description" content="Software, sites e sistemas sob medida para empresas. Fale com a SkwadTech e peça um orçamento.">
+  <meta name="twitter:image" content="https://skwadtech.com.br/assets/img/og-image.png">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: só os pesos usados no CSS (400 a 700), sem itálico -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="shortcut icon" href="/assets/img/fivcon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- GSAP Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <!-- GSAP: defer para não travar o carregamento da página (roda na ordem, antes dos scripts do site) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 </head>
 
 <body>
   <!-- Seção Hero com animação de partículas -->
   <div class="hero-section">
     <!-- Canvas para animação de partículas -->
-    <canvas id="particleCanvas"></canvas>
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
 
     <header>
-      <nav class="navbar">
-        <a href="/index.html"><img class="logo-img" src="/assets/img/logo.svg" alt="Logo SkwadTech"></a>
+      <nav class="navbar" aria-label="Menu principal">
+        <a href="/"><img class="logo-img" src="/assets/img/logo.svg" alt="SkwadTech" width="155" height="44"></a>
         <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
           <span></span>
           <span></span>
@@ -89,27 +96,28 @@
       <h2>STACKS</h2>
       <div class="stacks-container">
         <ul>
-          <li><img src="/assets/img/HTML5.svg" alt="HTML" width="44" height="44"></li>
-          <li><img src="/assets/img/CSS3.svg" alt="CSS" width="44" height="44"></li>
-          <li><img src="/assets/img/JavaScript.svg" alt="JavaScript" width="44" height="44"></li>
-          <li><img src="/assets/img/React.svg" alt="React" width="44" height="44"></li>
-          <li><img src="/assets/img/Next.js.svg" alt="Next.js" width="44" height="44"></li>
-          <li><img src="/assets/img/Tailwind CSS.svg" alt="Tailwind CSS" width="44" height="44"></li>
-          <li><img src="/assets/img/CSharp.svg" alt="C#" width="44" height="44"></li>
-          <li><img src="/assets/img/C++.svg" alt="C++" width="44" height="44"></li>
-          <li><img src="/assets/img/TypeScript.svg" alt="TypeScript" width="44" height="44"></li>
-          <li><img src="/assets/img/Java.svg" alt="Java" width="44" height="44"></li>
-          <li><img src="/assets/img/Node.js.svg" alt="Node.js" width="44" height="44"></li>
-          <li><img src="/assets/img/PostgresSQL.svg" alt="PostgreSQL" width="44" height="44"></li>
-          <li><img src="/assets/img/MySQL.svg" alt="MySQL" width="44" height="44"></li>
-          <li><img src="/assets/img/Oracle.svg" alt="Oracle" width="44" height="44"></li>
-          <li><img src="/assets/img/MongoDB.svg" alt="MongoDB" width="44" height="44"></li>
+          <!-- WebP 88x88 (2x para telas de alta densidade); fora da primeira tela: loading="lazy" -->
+          <li><img src="/assets/img/stacks/html5.webp" alt="HTML" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/css3.webp" alt="CSS" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/javascript.webp" alt="JavaScript" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/react.webp" alt="React" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/nextjs.webp" alt="Next.js" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/tailwindcss.webp" alt="Tailwind CSS" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/csharp.webp" alt="C#" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/cpp.webp" alt="C++" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/typescript.webp" alt="TypeScript" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/java.webp" alt="Java" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/nodejs.webp" alt="Node.js" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/postgressql.webp" alt="PostgreSQL" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/mysql.webp" alt="MySQL" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/oracle.webp" alt="Oracle" width="44" height="44" loading="lazy"></li>
+          <li><img src="/assets/img/stacks/mongodb.webp" alt="MongoDB" width="44" height="44" loading="lazy"></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Section Orçamento -->
+  <!-- Section Quem Somos -->
   <section class="section-quemsomos" id="quemsomos">
     <h2>Quem Somos</h2>
     <div class="quemsomos-container">
@@ -171,13 +179,17 @@
 
   <!-- Wrapper escuro: Orçamento + Footer compartilham o mesmo canvas -->
   <div class="dark-wrapper" id="contato">
-    <canvas id="darkCanvas"></canvas>
+    <canvas id="darkCanvas" aria-hidden="true"></canvas>
 
   <!-- Section Orçamento -->
-  <section class="section-orcamento" id="#contato">
+  <section class="section-orcamento" id="orcamento">
     <h2>Solicite um Orçamento</h2>
 
-    <div class="orcamento-container">
+    <!-- Netlify Forms: a Netlify lê este <form> no deploy e guarda cada envio (painel Forms),
+         com aviso por e-mail. "bot-field" é a armadilha para robôs (fica escondida). -->
+    <form class="orcamento-container" name="orcamento" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="orcamento">
+      <p class="campo-oculto" aria-hidden="true"><label>Não preencha: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <!-- Card de código -->
       <div class="code-card">
         <div class="code-header">
@@ -196,32 +208,33 @@
           }
         </div>
 
-        <button class="btn-enviar">Enviar</button>
+        <button type="submit" class="btn-enviar">Enviar</button>
+        <p class="orcamento-status" role="status" aria-live="polite"></p>
       </div>
 
       <!-- Card do formulário -->
       <div class="form-card">
         <div class="form-group">
           <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="nome" placeholder="" required>
+          <input type="text" id="nome" name="nome" autocomplete="name" required>
         </div>
 
         <div class="form-group">
           <label for="whatsapp">Whatsapp:</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="" required>
+          <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" required>
         </div>
 
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="" required>
+          <input type="email" id="email" name="email" autocomplete="email" required>
         </div>
 
         <div class="form-group">
           <label for="mensagem">Mensagem:</label>
-          <textarea id="mensagem" name="mensagem" placeholder="" required></textarea>
+          <textarea id="mensagem" name="mensagem" required></textarea>
         </div>
       </div>
-    </div>
+    </form>
   </section>
 
   <!-- Footer -->
@@ -230,7 +243,7 @@
     <div class="footer-content">
       <h2 class="footer-titulo">Vamos conversar sobre a sua solução?</h2>
 
-      <a href="https://wa.me/5500000000000" class="footer-whatsapp" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/5511965019164?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20SkwadTech%20e%20gostaria%20de%20um%20or%C3%A7amento." class="footer-whatsapp" target="_blank" rel="noopener noreferrer">
         <div class="whatsapp-icon">
           <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
@@ -239,26 +252,8 @@
         <span>Nos contate<br>por WhatsApp</span>
       </a>
 
-      <div class="footer-social">
-        <!-- Facebook -->
-        <a href="#" class="social-link" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-        </a>
-        <!-- Instagram -->
-        <a href="#" class="social-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
-        <!-- LinkedIn -->
-        <a href="#" class="social-link" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-      </div>
+      <!-- Redes sociais (Facebook, Instagram, LinkedIn): voltar com os links quando os perfis
+           existirem. Links "#" contam como quebrados para o Google. -->
 
       <address class="footer-address">
         <span>SkwadTech</span> &mdash; Brasil
@@ -270,35 +265,60 @@
   </footer>
   </div><!-- /.dark-wrapper -->
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD: empresa, site e serviços. "sameAs" (redes sociais) volta quando os
+       perfis existirem; não listar perfil que não existe -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "SkwadTech",
-    "url": "https://www.skwadtech.com.br",
-    "logo": "https://www.skwadtech.com.br/assets/img/logo.svg",
-    "description": "A SkwadTech desenvolve software, sites e soluções tecnológicas sob medida. Fundada em 2025, atuamos com React, Node.js, Java, C# e muito mais.",
-    "foundingDate": "2025",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "availableLanguage": "Portuguese"
-    },
-    "sameAs": [
-      "https://www.facebook.com/skwadtech",
-      "https://www.instagram.com/skwadtech",
-      "https://www.linkedin.com/company/skwadtech"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://skwadtech.com.br/#organizacao",
+        "name": "SkwadTech",
+        "url": "https://skwadtech.com.br/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://skwadtech.com.br/assets/img/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://skwadtech.com.br/assets/img/og-image.png",
+        "description": "A SkwadTech desenvolve software, sites e sistemas sob medida para empresas, com React, Node.js, Java, C# e bancos de dados.",
+        "foundingDate": "2025",
+        "areaServed": { "@type": "Country", "name": "Brasil" },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+55-11-96501-9164",
+          "availableLanguage": "Portuguese"
+        },
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desenvolvimento de Software", "description": "Sistemas sob medida para as necessidades do negócio." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desenvolvimento Web", "description": "Sites e aplicações web responsivos." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reestruturação de Software", "description": "Modernização e reorganização de sistemas existentes." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Estruturação de Banco de Dados", "description": "Modelagem e organização de bancos de dados." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UI | UX Design", "description": "Design de interfaces e experiência do usuário." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoria em T.I", "description": "Apoio estratégico em tecnologia." } }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://skwadtech.com.br/#site",
+        "url": "https://skwadtech.com.br/",
+        "name": "SkwadTech",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "https://skwadtech.com.br/#organizacao" }
+      }
     ]
   }
   </script>
 
-  <!-- Scripts -->
-  <script src="animation.js"></script>
-  <script src="processo.js"></script>
-  <script src="orcamento.js"></script>
-  <script src="navigation.js"></script>
-  <script src="footer-animation.js"></script>
+  <!-- Scripts: defer = baixam sem travar a página e rodam em ordem depois do HTML (e do GSAP) -->
+  <script defer src="animation.js"></script>
+  <script defer src="processo.js"></script>
+  <script defer src="orcamento.js"></script>
+  <script defer src="navigation.js"></script>
+  <script defer src="footer-animation.js"></script>
 
 </body>
 
